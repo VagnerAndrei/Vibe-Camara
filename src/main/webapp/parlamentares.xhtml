@@ -22,7 +22,6 @@
 			<h:inputText id="input-pagina" value="#{parlamentaresMB.paginaAtual}"
 				maxlength="4" onblur="onBlur(event)"
 				valueChangeListener="#{parlamentaresMB.paginaAtualChange}">
-				<f:param value="#{parlamentaresMB.paginaAtual}" name="paginaAtual"></f:param>
 			</h:inputText>
 			<h:outputLabel value="&nbsp;/ #{parlamentaresMB.totalPaginas}" />
 
