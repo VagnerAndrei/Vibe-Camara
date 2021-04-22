@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+
+</head>
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="header">
+	    Lista de parlamentares
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="form" onkeypress="keyPress(event)">
+			<h:commandButton value="Primeira"
+				actionListener="#{parlamentaresMB.primeiraPagina}" />
+			<h:commandButton value="Anterior"
+				actionListener="#{parlamentaresMB.paginaAnterior}" />
+
+			<h:inputText id="input-pagina" value="#{parlamentaresMB.paginaAtual}"
+				maxlength="4" onblur="onBlur(event)"
+				valueChangeListener="#{parlamentaresMB.paginaAtualChange}">
+				<f:param value="#{parlamentaresMB.paginaAtual}" name="paginaAtual"></f:param>
+			</h:inputText>
+			<h:outputLabel value="&nbsp;/ #{parlamentaresMB.totalPaginas}" />
+
+			<h:commandButton value="Próxima"
+				actionListener="#{parlamentaresMB.proximaPagina}">
+			</h:commandButton>
+			<h:commandButton value="Última"
+				actionListener="#{parlamentaresMB.ultimaPagina}" />
+
+			<!-- Controle Pagina Atual JavaScript -->
+			<h:outputLabel id="output-paginatual"
+				value="#{parlamentaresMB.paginaAtual}" style="display:none"></h:outputLabel>
+			<h:outputLabel id="output-totalPaginas"
+				value="#{parlamentaresMB.totalPaginas}" style="display:none"></h:outputLabel>
+		</h:form>
+
+		<h:dataTable var="parlamentar" styleClass="tabela"
+			value="#{parlamentaresMB.parlamentares}" headerClass="cabecalho"
+			columnClasses="primeiro,segundo,ultimo,ultimo,ultimo">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>    				
+               #{parlamentar.nome}
+            </h:column>
+
+			<h:column>
+				<f:facet name="header">Partido</f:facet>
+              #{parlamentar.partido}
+            </h:column>
+
+			<h:column>
+				<f:facet name="header">UF</f:facet>
+               #{parlamentar.uf}
+            </h:column>
+
+			<h:column>
+				<f:facet name="header">Visualizações</f:facet>
+              #{parlamentar.visualizacoes}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Perfil</f:facet>
+				<h:form>
+					<h:commandLink value="Detalhar"
+						action="#{parlamentaresMB.detalhar}"
+						actionListener="#{parlamentaresMB.detalharListener}">
+						<f:param name="id" value="#{parlamentar.id}" />
+					</h:commandLink>
+				</h:form>
+			</h:column>
+		</h:dataTable>
+
+		<script>
+	function keyPress(event) {
+		if (event.keyCode == 13) {
+			event.preventDefault()
+			document.getElementById('form:input-pagina').blur()
+		}
+	}
+	
+	function verificaPaginaAtual(){
+		const inputPagina = document.getElementById('form:input-pagina')
+		const paginaAtual = document.getElementById('form:output-paginatual')
+		const form = document.getElementById('form')
+		const totalPaginas = document.getElementById('form:output-totalPaginas')
+		
+		if (isNaN(inputPagina.value)) {
+			inputPagina.value = paginaAtual.textContent
+			form.submit()
+		} else {
+			if (inputPagina.value &lt; 1 || inputPagina.value &gt; new Number(totalPaginas.textContent)){
+				inputPagina.value = paginaAtual.textContent
+			}
+			form.submit()
+		}
+	}
+
+	function onBlur(event) {
+			verificaPaginaAtual()
+	}
+	
+</script>
+	</ui:define>
+</ui:composition>
+</html>

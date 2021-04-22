@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+body {
+	max-width: 800px;
+	height: auto;
+	width: auto;
+}
+
+#form *{
+	display: inline-block;
+	margin: 5px 2px;
+}
+
+#form{
+	margin: 0 0 0 75px;
+}
+
+.form-despesas{
+	text-align: right;
+}
+
+.form-despesas label{
+	margin-top: 15px;
+	margin-right: 225px;
+	font: 13px Arial, sans-serif;
+}
+
+.div-perfil{
+	display: block;
+	border-radius: 3px;
+	padding: 1px 0 45px 15px;
+	margin: auto auto auto 0;
+	border-style:solid;
+	border-width: 1px;
+	border-color: #7f7f85;
+	background: linear-gradient(to bottom, #e4e4ed 0%, #dcdce3 100%);
+	max-width: 450px;
+}
+
+.div-perfil label{
+	display: block;
+	margin: 5px 0 7px 0;
+	font: 13px Arial, sans-serif;
+}
+
+.div-despesas{
+	clear: left;
+	display: block;
+	margin: auto auto auto 0;
+}
+
+.agrupamento-despesas{
+	display: block;
+	margin: 5px 0;
+}
+
+.agrupamento-despesas label{
+	display: inline-block;
+	padding: 5px 20px 5px;
+	margin: 0;
+}
+
+#img-perfil{
+	border-radius: 5px;
+	border-style:solid;
+	border-width: 1px;
+	border-color: #7f7f85;
+	width: 100%;
+	max-width: 150px;
+	height: auto;
+	float: left;
+	margin: 0 10px 50px 0;
+	
+}
+
+#form input[type=text]{
+	width: 30px;
+	text-align: center;
+}
+
+#header {
+	width: 100%;
+	font: 12px Arial, sans-serif;
+	margin: 0 0 15px 0;
+}
+
+#content {
+	width: 100%;
+	height: 100%;
+}
+
+#footer {
+	align-content: center;
+	width: 100%;
+	position: relative;
+	bottom: 0;
+}
+
+ul {
+	margin: auto;
+	list-style-type: none;
+}
+
+ul li {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px;
+	background: linear-gradient(to top left, #ffffff 0%, #99ffcc 100%);
+	border-radius: 5px;
+	margin: 5px 0;
+}
+
+li label {
+	display: inline-block;
+	margin: auto 0;
+}
+
+li form {
+	float: right;
+}
+
+.tabela {
+	border: 1px solid gray;
+}
+
+.cabecalho {
+	text-align: center;
+	font: 13px Arial, sans-serif;
+	font-weight: bold;
+	color: Snow;
+	background: #7f7f85;
+}
+
+.primeiro {
+	text-align: center;
+	font: 15px Arial, sans-serif;
+	background: #c9c9d1;
+	min-width: 200px !important;
+}
+
+.segundo {
+	text-align: center;
+	font: 13px Arial, sans-serif;
+	background: #c1c1c9;
+	min-width: 110px !important;
+}
+
+.ultimo {
+	font: 13px Arial, sans-serif;
+	text-align: center;
+	background: #c9c9d1;
+	min-width: 35px !important;
+}

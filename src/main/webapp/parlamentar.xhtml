@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="header">
+		<h:outputLabel value="Lista de parlamentares"/>
+		<h:outputLabel value=" > #{parlamentarMB.parlamentar.nome}" />
+	</ui:define>
+	<ui:define name="content">
+		<div class="div-perfil">
+
+			<h3>Parlamentar:</h3>
+			<img id="img-perfil" src="#{parlamentarMB.parlamentar.urlFoto}" /> <strong>Nome
+				Civil:</strong>
+			<h:outputLabel value="#{parlamentarMB.parlamentar.nomeCivil}" />
+			<strong>Data de Nascimento:</strong>
+			<h:outputLabel
+				value="#{parlamentarMB.parlamentar.dataNascimentoFormatada}" />
+			<strong>Sexo:</strong>
+			<h:outputLabel value="#{parlamentarMB.parlamentar.sexoDescricao}" />
+			<strong>Partido:</strong>
+			<h:outputLabel value="#{parlamentarMB.parlamentar.partido}" />
+		</div>
+		<div class="div-despesas">
+			<h:panelGroup styleClass="div-despesas"
+				rendered="#{not empty parlamentarMB.agrupamentos}">
+				<h4>Despesas:</h4>
+
+				<h:dataTable var="agrupamento" styleClass="tabela"
+					value="#{parlamentarMB.agrupamentos}" headerClass="cabecalho"
+					columnClasses="segundo,ultimo,ultimo">
+					<h:column>
+						<f:facet name="header">Mês</f:facet>    				
+			             	  #{agrupamento.descricaoMes}
+			            	</h:column>
+
+					<h:column>
+						<f:facet name="header">Valor Líquido</f:facet>
+			             	 #{agrupamento.valorLiquidoFormatado}
+			            	</h:column>
+
+					<h:column>
+						<f:facet name="header">Despesas</f:facet>
+						<h:form>
+							<h:commandLink type="button" value="Detalhar"
+								action="#{parlamentarMB.detalhar}" actionListener="#{parlamentarMB.detalharListener}">
+								<f:param name="mes" value="#{agrupamento.mes}"></f:param>
+							</h:commandLink>
+						</h:form>
+					</h:column>
+				</h:dataTable>
+
+
+
+			</h:panelGroup>
+		</div>
+
+	</ui:define>
+
+
+</ui:composition>
+</html>

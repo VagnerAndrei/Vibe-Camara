@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+	version="2.3">
+
+	<navigation-rule>
+		<from-view-id>/parlamentares.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{parlamentaresMB.detalhar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/parlamentar.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/parlamentar.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{parlamentarMB.detalhar}</from-action>
+			<from-outcome>despesas</from-outcome>
+			<to-view-id>/despesas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>
