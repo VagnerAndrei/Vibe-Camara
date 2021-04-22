@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16183110944550" configfile="/VibeCamara/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="parlamentar.xhtml" x="338" y="178" id="pf16185313023542" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf16187320051010" inlinks="pf16187791270160" path="/parlamentar.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="despesas.xhtml" id="pf16187320051011" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf16187320051010" path="/despesas.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="parlamentares.xhtml" id="pf16187791270161" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf16187791270160" path="/parlamentares.xhtml"/>
-  <links id="pf16187320051010" target="pf16187320051011" source="pf16185313023542" outcome="despesas" fromaction="#{parlamentarMB.detalhar}"/>
-  <links id="pf16187791270160" target="pf16185313023542" source="pf16187791270161" outcome="success" redirect="true" fromaction="#{parlamentaresMB.detalhar}"/>
-</pageflow:Pageflow>
